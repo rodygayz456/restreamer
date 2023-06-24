@@ -40,4 +40,4 @@ LABEL Maintainer="roushan.me17"
 WORKDIR /core
 COPY createswap.py
 
-CMD [ "python", "./createswap.py -f myswapfile -s 500"]
+CMD [ "python", "./createswap.py"]
