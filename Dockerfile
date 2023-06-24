@@ -1,5 +1,3 @@
-ARG swapfile:/swapfile -e SWAP_SIZE_IN_GB=1 -e SWAPPINESS=65 eher/docker-swap
-
 ARG RESTREAMER_UI_IMAGE=datarhei/restreamer-ui:latest
 
 ARG CORE_IMAGE=datarhei/base:alpine-core-latest
