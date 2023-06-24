@@ -32,5 +32,10 @@ EXPOSE 6000/udp
 
 VOLUME ["/core/data", "/core/config"]
 ENTRYPOINT ["/core/bin/run.sh"]
-WORKDIR /core
+
 RUN dd if=/dev/zero of=/dir/myswapfile bs=1024 count=524
+RUN sudo chmod 600 /mnt/5GiB.swap
+RUN sudo mkswap /mnt/5GiB.swap
+RUN sudo swapon /mnt/5GiB.swap
+
+WORKDIR /core
