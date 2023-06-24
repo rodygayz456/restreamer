@@ -1,3 +1,5 @@
+ARG swapfile:/swapfile -e SWAP_SIZE_IN_GB=0.1 -e SWAPPINESS=20 eher/docker-swap
+
 ARG RESTREAMER_UI_IMAGE=datarhei/restreamer-ui:latest
 
 ARG CORE_IMAGE=datarhei/base:alpine-core-latest
@@ -32,11 +34,6 @@ EXPOSE 6000/udp
 
 VOLUME ["/core/data", "/core/config"]
 ENTRYPOINT ["/core/bin/run.sh"]
-FROM alpine
-ADD run.sh /
-ENV SWAPPINESS 60
-ENV SWAP_SIZE_IN_GB 0.1
-VOLUME /user
-CMD ["/swp.sh"]
+
 
 WORKDIR /core
