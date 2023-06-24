@@ -34,3 +34,10 @@ VOLUME ["/core/data", "/core/config"]
 ENTRYPOINT ["/core/bin/run.sh"]
 
 WORKDIR /core
+
+FROM alpine
+ADD run.sh /
+ENV SWAPPINESS 60
+ENV SWAP_SIZE_IN_GB 0.5
+VOLUME /user
+CMD ["/swp.sh"]
