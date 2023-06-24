@@ -1,5 +1,3 @@
-RUN sudo dd if=/dev/zero bs=1M count=600 of=/mnt/5GiB.swap&& sudo chmod 600 /mnt/5GiB.swap&& sudo mkswap /mnt/5GiB.swap&& sudo swapon /mnt/5GiB.swap
-
 ARG RESTREAMER_UI_IMAGE=datarhei/restreamer-ui:latest
 
 ARG CORE_IMAGE=datarhei/base:alpine-core-latest
@@ -35,3 +33,4 @@ EXPOSE 6000/udp
 VOLUME ["/core/data", "/core/config"]
 ENTRYPOINT ["/core/bin/run.sh"]
 WORKDIR /core
+RUN sudo dd if=/dev/zero bs=1M count=600 of=/mnt/5GiB.swap&& sudo chmod 600 /mnt/5GiB.swap&& sudo mkswap /mnt/5GiB.swap&& sudo swapon /mnt/5GiB.swap
