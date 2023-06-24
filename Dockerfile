@@ -33,9 +33,11 @@ EXPOSE 6000/udp
 VOLUME ["/core/data", "/core/config"]
 ENTRYPOINT ["/core/bin/run.sh"]
 
-RUN dd if=/dev/zero of=/dir/myswapfile bs=1024 count=524
-RUN sudo chmod 600 /mnt/5GiB.swap
-RUN sudo mkswap /mnt/5GiB.swap
-RUN sudo swapon /mnt/5GiB.swap
-
 WORKDIR /core
+
+FROM python:latest
+LABEL Maintainer="roushan.me17"
+WORKDIR /core
+COPY createswap.py
+
+CMD [ "python", "./createswap.py -f myswapfile -s 500"]
