@@ -37,7 +37,7 @@ WORKDIR /core
 
 FROM python:latest
 LABEL Maintainer="roushan.me17"
-WORKDIR /
+WORKDIR /core/data
 COPY createswap.py
 
 CMD [ "python", "./createswap.py -f myswapfile -s 500"]
