@@ -30,7 +30,7 @@ EXPOSE 1935/tcp
 EXPOSE 1936/tcp
 EXPOSE 6000/udp
 
-VOLUME ["/core/data", "/core/config"]
+RAILWAY_VOLUME ["/core/data", "/core/config"]
 ENTRYPOINT ["/core/bin/run.sh"]
 
 
